@@ -1,0 +1,300 @@
+@use 'base' as *
+
+.site 
+  display: grid
+  min-height: 100vh
+  grid-template-columns: 1fr
+  grid-template-areas:  "header" "content" "footer"
+  grid-template-rows: 4em
+
+  @media ($mq-large)
+    grid-template-columns: 6em auto
+    grid-template-rows: 1fr min-content
+    grid-template-areas:  "header content" "header footer"
+    grid-gap: 0em
+
+.site-header 
+  z-index: 100
+  grid-area: header
+  display: flex
+  border-bottom: 1px solid $border-colory
+  background-color: $base-primary
+  left: 0
+
+  @media not ($mq-large)
+    position: fixed
+    top: 0
+    width: 100%
+    flex-direction: row
+
+  @media ($mq-large)
+    flex-direction: column
+    position: fixed
+    top: 0px
+    left: 0px
+    height: 100vh
+    border-right: 2px solid $border-colory
+    padding-right: 1em
+
+.main-navigation
+  margin-top: 1em
+
+.site-content
+  grid-area: content
+  display: grid
+  grid-template-columns: auto
+  grid-template-areas: "primary" "secondary"
+  background-color: $base-primary-2
+  overflow: auto
+
+  @media ($mq-large)
+    grid-template-columns: 1fr -webkit-min-content
+    grid-template-columns: 1fr min-content
+    grid-template-areas: "primary secondary"
+
+.content-area 
+  grid-area: primary
+  width: 100%
+  padding: 1em
+  @media ($mq-large)
+    margin-left: 0.75em
+  @media not ($mq-large)
+    margin: 0 auto
+
+.content-area.full-width 
+    max-width: 100%
+    width: auto
+    padding: 0.5em
+
+.no-sidebar .site-main 
+    margin-right: 0
+
+.no-sidebar .content-area 
+    float: none
+    margin-left: auto
+    margin-right: auto
+
+.site-footer
+  grid-area: footer
+  text-align: center
+  margin: 1em 0
+
+.site-footer
+  font-size: $base-font-size*0.5
+  .site-info
+    display: inline-block
+    margin: 0px auto
+    list-style: none
+    margin: 1em 0
+    padding: 0px
+    li
+      float: left
+      margin-left: 1em
+
+.menu-small-footer-menu-container 
+    display: inline-block
+
+.small-menu 
+    padding: 0
+    margin: 0
+    display: inline-block
+    list-style: none
+    li
+      display: inline-box
+
+.site-branding
+  z-index: 1
+  @media not ($mq-large)
+    min-width: 4em
+    margin-left: 0.5em
+    margin-right: auto
+
+.site-navigation
+  position: relative
+
+.custom-mobile-link 
+  display: block
+  height: 0
+  padding-bottom: 100%
+  background-image: url(../../assets/logosmall.png)
+  background-position: center center
+  background-size: cover
+  visibility: visible
+  @media ($mq-large)
+    display: none
+    visibility: hidden
+  
+.custom-logo-link
+  margin-left: 0.8em
+  display: block
+  height: 0
+  padding-bottom: 100%
+  background-image: url(../../assets/logobig.png)
+  background-position: center center
+  background-size: cover
+  visibility: visible
+  @media not ($mq-large)
+    display: none
+    visibility: hidden
+
+.social-buttons
+  display: inline-block
+
+  @media not ($mq-large)
+    min-width: 8em
+
+  @media ($mq-large)
+    display: block
+    margin-left: 1em
+    margin-top: auto
+
+  ul 
+    @include flexbox
+    list-style: none
+    padding: 0px
+    justify-content: space-evenly
+    @media not ($mq-large)
+      justify-content: space-between
+
+
+.igicon
+  @include fa-icon-brands($fa-var-instagram)
+  font-size: 1.1em
+  @media not ($mq-large)
+    font-size: 1.5em
+
+.site-title .site-description
+  position: absolute
+  clip: rect(1px, 1px, 1px, 1px)
+
+.sf-vertical
+  width: 100%
+  min-width: 8em
+  li
+    float: none
+
+.sf-menu, .sf-menu * 
+  padding: 0px
+  margin: 0px
+  list-style: none
+  z-index: 99999
+
+.sf-menu
+  line-height: $base-line-height*0.7
+  @include flexbox()
+  flex-direction: horizontal
+  margin-bottom: 1em
+  margin-left: auto
+  width: 100%
+  @media not ($mq-large)
+    justify-content: center
+    align-items: flex-start
+
+  li 
+    white-space: nowrap
+    *white-space: normal
+    transition: background 0.2s
+    position: relative
+    justify-content: center
+  @media ($mq-large)
+    display: block !important
+
+
+.sf-menu 
+  a 
+    font-size: $base-font-size*0.8
+    text-transform: uppercase
+    padding: 0.75em 0 0.75em 0
+    text-decoration: none
+    zoom: 1
+    color: $base-accent
+    text-align: center
+    display: block
+    position: relative
+    letter-spacing: 0.12em
+    font-weight: 400
+
+.site-title 
+  display: none
+
+.site-description
+  display: none
+
+.gallery
+  ul
+    @include flexbox
+    flex-wrap: wrap
+    @media not ($mq-large)
+      padding-inline-start: 0px
+  li
+    height: 15em
+    flex-grow: 2
+    list-style: none
+  img 
+    max-height: 100%
+    min-width: 100%
+    object-fit: cover
+    vertical-align: center
+  li:last-child
+    flex-grow: 0
+  
+
+#hamburger-icon 
+  margin: auto 0
+  display: none
+  cursor: pointer
+
+
+#hamburger-icon div 
+  width: 35px
+  height: 3px
+  background-color: white
+  margin: 6px 0
+  transition: 0.4s
+
+
+.open .bar1 
+  -webkit-transform: rotate(-45deg) translate(-6px, 6px)
+  transform: rotate(-45deg) translate(-6px, 6px)
+
+
+.open .bar2 
+  opacity: 0
+
+
+.open .bar3 
+  -webkit-transform: rotate(45deg) translate(-6px, -8px)
+  transform: rotate(45deg) translate(-6px, -8px)
+
+
+.open .mobile-menu 
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: flex-start
+
+
+.mobile-menu 
+  display: none
+  position: absolute
+  top: 50px
+  left: 0
+  height: calc(100vh - 50px)
+  width: 100%
+
+
+.mobile-menu li 
+  margin-bottom: 10px
+
+
+@media not ($mq-large)
+  header nav 
+    display: none
+  
+
+  #hamburger-icon 
+    margin-right: 1em
+    margin-left: auto
+    display: block
+  
+
