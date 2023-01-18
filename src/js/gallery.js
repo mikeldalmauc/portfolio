@@ -89,7 +89,7 @@ const imgs = [
     src: "3-black woman",
     title: ""
   }, {
-    src: "4 takeshi",
+    src: "4takeshi",
     title: ""
   }, {
     src: "6-nexus6",
