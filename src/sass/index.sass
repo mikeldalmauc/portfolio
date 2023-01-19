@@ -17,7 +17,7 @@
   z-index: 100
   grid-area: header
   display: flex
-  border-bottom: 1px solid $border-colory
+  border-bottom: 1px solid $border-color
   background-color: $base-primary
   left: 0
 
@@ -33,7 +33,7 @@
     top: 0px
     left: 0px
     height: 100vh
-    border-right: 2px solid $border-colory
+    border-right: 2px solid $border-color
     padding-right: 1em
 
 .main-navigation
@@ -281,10 +281,14 @@
   left: 0
   height: calc(100vh - 50px)
   width: 100%
+  li 
+    width: 100%
+    list-style: none
+    background-color: $base-primary
+    border-bottom: 1px solid $border-color
 
-
-.mobile-menu li 
-  margin-bottom: 10px
+.mobile-menu > li:first-of-type
+  border-top: 1px solid $border-color
 
 
 @media not ($mq-large)
@@ -297,4 +301,4 @@
     margin-left: auto
     display: block
   
-
+  
