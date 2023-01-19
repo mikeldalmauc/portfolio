@@ -8,7 +8,7 @@
     "imageOptimizerTask": "gulp imageOptimizerTask",
     "start": "node build/server.js"
   },
-  "author": "",
+  "author": "Mike Dalmau",
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.4.13",

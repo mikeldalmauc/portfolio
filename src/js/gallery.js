@@ -13,7 +13,7 @@ const imagesPath = 'assets/gallery/';
 // Se inicializa el modelo  
 function init() {
 
-  fetch('data/gallery/galleryImages.json')
+  fetch('src/data/galleryImages.json')
     .then((response) => response.json())
     .then((gallery) => {
         modelo = gallery.data
@@ -72,7 +72,7 @@ function pictureView(model, filename){
     +"</picture>";
 }
 
-function buildImgPath(imgName){
+function buildImgPath(filename){
   return this.imagesPath+filename+'/' +filename;
 }
 
