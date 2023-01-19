@@ -45,7 +45,7 @@ function view(model) {
     let li = document.createElement("li");
 
     let link = document.createElement("a");
-    link.href = defaultImageSourcePath(imageName);
+    link.href = defaultImageSourcePath(model, imageName);
     link.target = "_blank";
 
     // Se genera el html de la imagen
@@ -76,6 +76,6 @@ function buildImgPath(filename){
   return this.imagesPath+filename+'/' +filename;
 }
 
-function defaultImageSourcePath(imageName){
+function defaultImageSourcePath(model, imageName){
   return buildImgPath(imageName)+"-"+model.breakpoints.slice(-1)+"."+model.breakpoints.slice(-1);
 }
