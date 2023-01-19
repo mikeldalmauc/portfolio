@@ -10,24 +10,23 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const replace = require('gulp-replace');
 const cssnano = require('cssnano');
+const fs = require('fs')
 
 const cssVersion = new Date().getTime();
 const sassFiles = 'src/sass/**/*.sass';
 const jsFiles = 'src/js/**/*.js';
 const htmlFiles = 'src/html/**/*.html';
-const imageFiles = 'src/img/**/*.jpg';
-const processedImages = '_images/**';
+const imageFiles = 'src/data/gallery/*.jpg';
+const processedImages = 'assets/**';
+const galleryConfig = JSON.parse(fs.readFileSync('src/data/galleryImages.json')).data;
 
-// ['_images/original/process/**/*.{jpeg,jpg,png,tiff,webp}'
-//     , '!_images/original/raw/**']
 
-// Creates a browserSync server for all files in this directory.
 // fetch command line arguments
 const arg = (argList => {
 
     let arg = {}, a, opt, thisOpt, curOpt;
     for (a = 0; a < argList.length; a++) {
-  
+
       thisOpt = argList[a].trim();
       opt = thisOpt.replace(/^\-+/, '');
   
@@ -36,57 +35,45 @@ const arg = (argList => {
         // argument value
         if (curOpt) arg[curOpt] = opt;
         curOpt = null;
-  
       }
       else {
   
         // argument name
         curOpt = opt;
         arg[curOpt] = true;
-  
       }
-  
     }
-  
     return arg;
-  
   })(process.argv);
 
-  function imageOptimizerTask(){
-    
-    const BREAKPOINTS = {
-        xs: 576,
-        sm: 769,
-        md: 992,
-        lg: 1200,
-        xl: 1400,
-       // xxl: 2048,
-    };
-    const onDiv = div => Object.entries(BREAKPOINTS).map(([bp, value]) => [Math.round(value / div), `-${bp}`]);
-    // creates an array of [[1, "-xs"], [2, "-sm"], ... ] (obviously the values are 576/div etc)
-    
+
+function imageOptimizerTask(){
+
+    const BREAKPOINTS = galleryConfig.breakpoints; 
+
+    const onDiv = div => BREAKPOINTS.map(bp => [Math.round(bp.size / div), bp.name]);
     const div = arg.d || 1;
     const bps = onDiv(div); 
+    // creates an array of [[1, "-xs"], [2, "-sm"], ... ] (obviously the values are 576/div etc)
 
-    const jpegOptions = { quality: 50, progressive: true };
-    const webpOptions = { quality: 50 };
-    const avifOptions = { quality: 50 };
-
+    let formatOptions = {quality: galleryConfig.quality};
+    
     return src(imageFiles)
         .pipe(rename(function (path) {
             path.dirname += "/" + path.basename;
         }))
         .pipe(sharpResponsive({
-            formats: [
-                // jpeg
-                ...bps.map(([width, suffix]) => ({ width, format: "jpeg", rename: { suffix }, jpegOptions })),
-                // webp
-                ...bps.map(([width, suffix]) => ({ width, format: "webp", rename: { suffix }, webpOptions })),
-                // avif
-                ...bps.map(([width, suffix]) => ({ width, format: "avif", rename: { suffix }, avifOptions })),
-            ]
+            formats: galleryConfig.formats.map(format => {
+                if("jpg" === format)
+                    formatOptions = {quality: galleryConfig.quality, progressive:true};
+                else
+                    formatOptions = {quality: galleryConfig.quality};
+
+                return bps.map(([width, suffix]) => ({ width, format: format, rename: { suffix }, formatOptions}));
+            }
+            ).flatMap(f => f)
         }))
-        .pipe(dest('_images/processed'));
+        .pipe(dest('assets/gallery'));
 }
 
 
