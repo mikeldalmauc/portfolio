@@ -67,9 +67,9 @@ const arg = (argList => {
     const div = arg.d || 1;
     const bps = onDiv(div); 
 
-    const jpegOptions = { quality: 97, progressive: true };
-    const webpOptions = { quality: 97 };
-    const avifOptions = { quality: 97 };
+    const jpegOptions = { quality: 50, progressive: true };
+    const webpOptions = { quality: 50 };
+    const avifOptions = { quality: 50 };
 
     return src(imageFiles)
         .pipe(rename(function (path) {
