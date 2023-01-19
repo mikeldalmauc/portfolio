@@ -1,0 +1,19 @@
+@use 'base' as *
+
+.gallery
+  ul
+    display: flex
+    flex-wrap: wrap
+    @media not ($mq-large)
+      padding-inline-start: 0px
+  li
+    height: 15em
+    flex-grow: 2
+    list-style: none
+  img 
+    max-height: 100%
+    min-width: 100%
+    object-fit: cover
+    vertical-align: center
+  li:last-child
+    flex-grow: 0

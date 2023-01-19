@@ -38,7 +38,7 @@ To process images use:
 
 ##### Notes:
 
-Install sharp if image management is intended.
+Install sharp for imaga management is may be required.
 
 `npm install --save-dev gulp gulp-sharp-responsive`
 

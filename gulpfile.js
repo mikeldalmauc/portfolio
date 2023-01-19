@@ -14,6 +14,7 @@ const cssnano = require('cssnano');
 const cssVersion = new Date().getTime();
 const sassFiles = 'src/sass/**/*.sass';
 const jsFiles = 'src/js/**/*.js';
+const htmlFiles = 'src/html/**/*.html';
 const imageFiles = 'src/img/**/*.jpg';
 const processedImages = '_images/**';
 
@@ -113,6 +114,12 @@ function jsTask() {
         .pipe(browserSync.stream()); // Update the browser
 }
 
+// Gulp task to copy HTML files to output directory
+function htmlTask(){
+    return src(htmlFiles)
+    .pipe(dest('build')) // Put everything in the build directory
+    .pipe(browserSync.stream());
+}
 
 function preventCachingTask() {
     // Looks in the index.html file for any files that have a 'v=' tag,
@@ -139,7 +146,7 @@ function watchTask() {
 module.exports = {
     imageOptimizerTask,
     default: series(
-        parallel(scssTask, jsTask),
+        parallel(scssTask, jsTask, htmlTask),
         preventCachingTask,
         watchTask
     )

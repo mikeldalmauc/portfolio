@@ -8,8 +8,12 @@
 
     <link rel="icon" href="/assets/favicon.png">
 
-
-    <link rel="stylesheet" href="build/index.css?v=1674076654003" />
+    
+    <link rel="stylesheet" href="build/base.css?v=1674126604768" />
+    <link rel="stylesheet" href="build/index.css?v=1674126604768" />
+    <link rel="stylesheet" href="build/navbar.css?v=1674126604768" />
+    <link rel="stylesheet" href="build/footer.css?v=1674126604768" />
+    <link rel="stylesheet" href="build/gallery.css?v=1674126604768" />
 
    
     <!-- our project just needs Font Awesome Solid + Brands -->
@@ -26,10 +30,22 @@
     <script src="https://kit.fontawesome.com/307b32ae60.js" crossorigin="anonymous"></script>
     <script src="build/index.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">    </script> 
+
+    <script> 
+      $(function(){
+        $("#includedContent").load("build/navbar.html"); 
+      });
+    </script> 
+
   </head>
 
   <body onLoad="init();">
+
+    <div id="includedContent"></div>
+
     <div id="page" class="site">
+
 
       <header id="masterhead" class="site-header">
         <div ></div>
@@ -62,7 +78,7 @@
           <div class="menu-menu-1-container">
             <ul
               id="primary-menu"
-              class="sf-menu sf-vertical nav-menu sf-js-enabled sf-arrows"
+              class="sf-menu sf-vertical nav-menu"
               aria-expanded="false"
             >
               <li

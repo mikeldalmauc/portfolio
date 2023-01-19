@@ -3,6 +3,13 @@
 // DEFINICION DE VARIABLES GENERALES
 //---------------------------------------------------------------------------------------------------------
 
+  // Variable overrides first
+$primary: #900
+$enable-shadows: true
+$prefix: "mo-"
+
+// Then import Bootstrap
+@import "node_modules/bootstrap/scss/bootstrap"
 
 // Custom Web Fonts
 @import 'https://fonts.googleapis.com/css?family=Merriweather:300,400,700,900'
@@ -62,28 +69,28 @@ $base-seconday-light-2:	#898989
 $base-background-color: $base-primary-2
 $base-font-color: $base-seconday-light           
 
-@mixin flexbox() 
-  display: -webkit-box
-  display: -moz-box
-  display: -ms-flexbox
-  display: -webkit-flex
-  display: flex
+// @mixin flexbox() 
+//   display: -webkit-box
+//   display: -moz-box
+//   display: -ms-flexbox
+//   display: -webkit-flex
+//   display: flex
 
 
-@mixin flex($values)
-  -webkit-box-flex: $values
-  -moz-box-flex: $values
-  -webkit-flex: $values
-  -ms-flex: $values
-  flex: $values
+// @mixin flex($values)
+//   -webkit-box-flex: $values
+//   -moz-box-flex: $values
+//   -webkit-flex: $values
+//   -ms-flex: $values
+//   flex: $values
 
 
-@mixin order($val) 
-  -webkit-box-ordinal-group: $val
-  -moz-box-ordinal-group: $val
-  -ms-flex-order: $val
-  -webkit-order: $val
-  order: $val
+// @mixin order($val) 
+//   -webkit-box-ordinal-group: $val
+//   -moz-box-ordinal-group: $val
+//   -ms-flex-order: $val
+//   -webkit-order: $val
+//   order: $val
 
   
 // DEFINICION DE ETIQUETAS
@@ -95,13 +102,18 @@ $base-font-color: $base-seconday-light
   box-sizing: border-box
 
 
-body   
+body 
   background-color: $base-background-color
   color: $base-font-color
   font-family: 'Merriweather'
   font-weight: 300
   font-size: $base-font-size
   line-height: $base-line-height
+  overflow-x: hidden
+  width: 100%
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
 
   @media ($mq-medium)
     font-size: $base-font-size*1.2

@@ -83,10 +83,10 @@ const imgs = [
     src: "wall12am",
     title: ""
   }, {
-    src: "2-korean woman",
+    src: "2-korean-woman",
     title: ""
   }, {
-    src: "3-black woman",
+    src: "3-black-woman",
     title: ""
   }, {
     src: "4takeshi",
@@ -156,7 +156,9 @@ function pictureView(filename){
     breakpoints.map(bp => "<source srcset='"+path+"-"+bp.name+"."+f+"' media='(max-width: "+bp.size+"em)' type='image/"+f+"' />")
   ).flatMap(imageVariation => imageVariation)
   .reduce((prev, curr) => prev + curr, "")
-  + "<img src='"+path+"-xl.jpg' alt='image'></img>"
+  // Default image
+  + "<img src='"+path+"-md.jpg' alt='image'></img>"
+  // wrapp on picutre
     +"</picture>";
 }
 
