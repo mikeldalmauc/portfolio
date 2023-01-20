@@ -51,7 +51,7 @@ function imageOptimizerTask(){
 
     const BREAKPOINTS = galleryConfig.breakpoints; 
 
-    const onDiv = div => BREAKPOINTS.map(bp => [Math.round(bp.size*16/ div), bp.name]);
+    const onDiv = div => BREAKPOINTS.map(bp => [Math.round(bp.size / div), "-"+bp.name]);
     const div = arg.d || 1;
     const bps = onDiv(div); 
     // creates an array of [[1, "-xs"], [2, "-sm"], ... ] (obviously the values are 576/div etc)
