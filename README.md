@@ -18,10 +18,13 @@ Personal portfolio website
       - [Observando los cambios](#observando-los-cambios)
       - [Forzar a los navegadores actualizar su cache](#forzar-a-los-navegadores-actualizar-su-cache)
       - [Juntando todas las partes](#juntando-todas-las-partes)
-  - [Herramientas del entorno de desarrollo](#herramientas-del-entorno-de-desarrollo)
-    - [Image processing](#image-processing)
-        - [Notes:](#notes)
-- [References](#references)
+  - [Usando el entorno de desarrollo](#usando-el-entorno-de-desarrollo)
+    - [Configuraciones básicas](#configuraciones-básicas)
+    - [Inyectar html externo](#inyectar-html-externo)
+    - [Usar elementos de bootstrap](#usar-elementos-de-bootstrap)
+    - [Usar browser sync](#usar-browser-sync)
+- [Referencias](#referencias)
+- [Anexos](#anexos)
 
 
 ### Requisitos
@@ -89,7 +92,7 @@ Ejecutamos el siguiente comando en nuestro proyecto para hacer el build.
 
 `gulp`
 
-Si todo va correctamente veremos la siguiente salida en la consola y que se crea la carpeta build en la raiz de nuestro proyecto.
+Si todo va correctamente veremos la siguiente salida en la consola y se creará la carpeta build en la raiz de nuestro proyecto.
 <p align="center">
     <img src="src/data/readme-imgs/build-good.jpg" width="360"/>
 </p>
@@ -114,7 +117,7 @@ Caben destacar, los selectores que nos permitiran especificar, en nuestro caso, 
 
 #### Arranque del servidor
 
-Las siguientes líneas del bulkfile sirven para levantar el servidor en la raiz de nuestro proyecto, donde se encuentra el fichero index.html. Si nos fijamos, esto no es una función sino una llamada a la función init, esto quiere decir que el servidor se levantará siempre que ejecutemos el comando bulk, independientemente de la tarea que queramos ejecutar.
+Las siguientes líneas del bulkfile sirven para levantar el servidor en la raiz de nuestro proyecto, donde se encuentra el fichero index.html. Si nos fijamos, esto no es una función sino una llamada a la función init de browsersync, esto quiere decir que el servidor se levantará siempre que ejecutemos el comando bulk, independientemente de la tarea que queramos ejecutar.
 
 <p align="center">
     <img src="src/data/readme-imgs/v1.jpg" width="800"/>
@@ -167,42 +170,101 @@ Un problema comun, es no tener claro si nuestros cambios han sido aplicados o es
 </p>
 
 #### Juntando todas las partes
-En resumen, tras lanzar el comando gulp tendremos un entorno de desarrollo con un servidor de aplicación local y nuestra cuadrilla de ranas (tareas de gulp) mantendrá el build actualizado a medida que apliquemos cambios, todo de forma automática.
+En resumen, tras lanzar el comando gulp tendremos un entorno de desarrollo con un servidor de aplicación local y nuestra cuadrilla de ranas mantendrá el build actualizado a medida que apliquemos cambios, todo de forma automática.
 <p align="center">
     <img src="src/data/readme-imgs/devenv.jpg" width="800"/>
 </p>
 
-## Herramientas del entorno de desarrollo
+## Usando el entorno de desarrollo
 
-### Image processing
+### Configuraciones básicas
 
-To process images use:
+Los ficheros css se han de referenciar en la cabecera del html, junto con su parametro de versión, el valor inicial es indeferente.
 
-` gulp imageOptimizerTask` or   `gulp imageOptimizerTask -d 4` where the image generated would be a 1/4 of a fullscreen image.    
+Los mismo haremos con el fichero de JS, pero dado que todos los scripts de javascript están concatenados en uno solo, podemos compartir el mismo en todas las páginas, reduciendo mucho la complejidad de gestionar los scripts a través de nuestra aplicación. Podemos añadirlo con la ultima línea de la imagen.
 
-##### Notes:
+<p align="center">
+    <img src="src/data/readme-imgs/config.jpg" width="800"/>
+</p>
 
-Installing sharp, used for image compression, may be required.
+### Inyectar html externo
+En el siguiente ejemplo se muestra como podemos inyectar el contenido del los ficheros mediante el uso de jquery. Jquery es una librería que sirve, entre otras cosas para buscar elementos en el html mediante consultas, por ejemplo, "dame todos los list items *li* que sean herederos de la etiqueta con id *foo*". 
+
+En este caso estoy probando con un nuevo html para la barra del navegador, puedo cambiar entre la antigua y la nueva cambiando el comentario de línea.
+
+<p align="center">
+    <img src="src/data/readme-imgs/inj.jpg" width="800"/>
+</p>
+
+/$. es una función estática de jquery que ejecutará nuestra función cuando todo se haya cargado.
+
+### Usar elementos de bootstrap
+
+<a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Bootstrap </a> es una kit de herramientas y contenido html y css. Añadiendo las clases y etiquetas adecuadas, junto con las librerías de bootstrap, podemos crear páginas de una forma más fácil y rápida, garantizando una funcionalidad más estable y estandar, ya que se más gente la está usando. Además, podemos personalizar los estilos por nuestra cuenta más tarde.
+
+Para utilizar bootstrap tenemos que importar a nuestro fichero de sass el archivo bootstrap.scss localizado en modulo de bootstrap. Una vez hecho esto, tendremos visibilidad de todas las clases y defininiciones css de bootstrap.
+<p align="center">
+    <img src="src/data/readme-imgs/bootstrap2.jpg" width="500"/>
+</p>
+Uno de los htmls que he mostrado en el ejemplo anterior, contenía codigo de bootstrap como el que podeis ver a continuación. Podemos copiarlo de la pagina web de bootstrap e inyectarlo en nuestro html utilizando la estrategia de arriba o añadirlo directamente.
+<p align="center">
+    <img src="src/data/readme-imgs/bootstrap.jpg" width="800"/>
+</p>
+
+### Usar browser sync
+
+Una vez que hemos levantado el entorno, podremos acceder a nuestra web desde todos los dispositivos en nuestra red. En el puerto 3001, sin embargo, tenemos el panel de Browsersync que nos puede facilitar algunas tareas de maquetación.
+<p align="center">
+    <img src="src/data/readme-imgs/bsync.jpg" width="800"/>
+</p>
+
+En el apartado **debug**, activando las siguientes opciones veremos los márgenes de los css, sus profundidades, o una malla para configurable para medir distancias.
+<p align="center">
+    <img src="src/data/readme-imgs/bsync2.jpg" width="800"/>
+</p>
+
+<h2> Gracias por visitarme en gitHub!</h2>
+
+<p align="center">
+    <img src="src/data/gallery/tombrider-18.jpg" width="400"/>
+</p>
+
+# Referencias
+https://www.devsamples.com/javascript/example-gulpfile-scss-js-reload
+https://docs.npmjs.com/cli/v6/commands/npm-install
+
+# Anexos
+Todavía hay más, como habrás podido ver en el gulpfile hay una tarea más definida. 
+
+<p align="center">
+    <img src="src/data/readme-imgs/imageOpt.jpg" width="800"/>
+</p>
+
+Esta tarea sirve para generar imagenes a partir de una configuración como la de abajo, generara imagenes de tamaños y formatos distintos. En el ejemplo se generarán 6 versiones de cada imagen, dos con terminación **-sm.avif** y **-md.avif**, dos con terminación **-sm.webp** y **-sm.webp**, y dos con **-sm.jpg** y **-md.jpg**. El tamaño de imagen sm equivaldría a 48em * 16 = 768px de ancho y md a 1040px. En el json se encuentra en ems ya que 
+se usa el mismo json para generar el html de la hui con la etiqueta de imagen de cada versión, ver más abajo.
+
+<p align="center">
+    <img src="src/data/readme-imgs/json.jpg" width="800"/>
+</p>
+
+La tarea que optimiza imagenes se ejecuta con la instrucción.
+
+` gulp imageOptimizerTask`
+
+Finalmente veremos como a partir de las imagenes en el directorio **src/data/gallery** y el fichero de configuración **gallery. json** se genera un directorio para cada imagen, con todas las versiones dentro. El nombre del directorio se llama igual que la imagen. 
+
+<p align="center">
+    <img src="src/data/readme-imgs/imageopt2.jpg" width="600"/>
+</p>
+
+Para esta tarea se utiliza la libería sharp por lo que será necesario instalarlas.
 
 `npm install --save-dev gulp gulp-sharp-responsive`
 
-Installing sass gulp-rename may be necessary:
+Otras librerías que puede hacer falta instalar.
 
-`npm install gulp-rename`
-
-Installing sass dependency may be necessary:
+`npm install --save-dev gulp-rename`
 
 `npm install --save-dev sass`         
 
-Adding postcss as a depency might be necessary
-
-`npm i postcss`
-
-
-<p align="center">
-    <img src="src/data/gallery/1-fallenAngels.jpg" width="400"/>
-</p>
-
-# References
-https://www.devsamples.com/javascript/example-gulpfile-scss-js-reload
-https://docs.npmjs.com/cli/v6/commands/npm-install
+`

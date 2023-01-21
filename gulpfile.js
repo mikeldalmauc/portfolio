@@ -20,40 +20,12 @@ const imageFiles = 'src/data/gallery/*.jpg';
 const processedImages = 'assets/**';
 const galleryConfig = JSON.parse(fs.readFileSync('src/data/galleryImages.json')).data;
 
-
-// fetch command line arguments
-const arg = (argList => {
-
-    let arg = {}, a, opt, thisOpt, curOpt;
-    for (a = 0; a < argList.length; a++) {
-
-      thisOpt = argList[a].trim();
-      opt = thisOpt.replace(/^\-+/, '');
-  
-      if (opt === thisOpt) {
-  
-        // argument value
-        if (curOpt) arg[curOpt] = opt;
-        curOpt = null;
-      }
-      else {
-  
-        // argument name
-        curOpt = opt;
-        arg[curOpt] = true;
-      }
-    }
-    return arg;
-  })(process.argv);
-
-
 function imageOptimizerTask(){
 
     const BREAKPOINTS = galleryConfig.breakpoints; 
 
-    const onDiv = div => BREAKPOINTS.map(bp => [Math.round((bp.size*16) / div), "-"+bp.name]);
-    const div = arg.d || 1;
-    const bps = onDiv(div); 
+    const bps = BREAKPOINTS.map(bp => [Math.round(bp.size*16), "-"+bp.name]);
+    
     // creates an array of [[1, "-xs"], [2, "-sm"], ... ] (obviously the values are 576/div etc)
 
     let formatOptions = {quality: galleryConfig.quality};
