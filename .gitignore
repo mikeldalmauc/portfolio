@@ -1,5 +1,4 @@
 .vscode
-_images/
 node_modules/
 build/
 assets/gallery/
