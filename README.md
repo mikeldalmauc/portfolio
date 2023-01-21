@@ -13,10 +13,12 @@ Personal portfolio website
       - [Cabecera del fichero](#cabecera-del-fichero)
       - [Arranque del servidor](#arranque-del-servidor)
       - [Copiado de los ficheros .html](#copiado-de-los-ficheros-html)
-      - [Procesado de los ficheros sass](#procesado-de-los-ficheros-sass)
-      - [Procesado de los ficheros js](#procesado-de-los-ficheros-js)
+      - [Procesado de los ficheros .sass](#procesado-de-los-ficheros-sass)
+      - [Procesado de los ficheros .js](#procesado-de-los-ficheros-js)
       - [Observando los cambios](#observando-los-cambios)
       - [Forzar a los navegadores actualizar su cache](#forzar-a-los-navegadores-actualizar-su-cache)
+      - [Juntando todas las partes](#juntando-todas-las-partes)
+    - [asd](#asd)
     - [Image processing](#image-processing)
         - [Notes:](#notes)
 - [References](#references)
@@ -116,7 +118,7 @@ Las siguientes líneas del bulkfile sirven para levantar el servidor en la raiz 
 
 <p align="center">
     <img src="src/data/readme-imgs/v1.jpg" width="800"/>
-</p>
+</p> 
 
 #### Copiado de los ficheros .html
 
@@ -126,7 +128,7 @@ La tarea especificada debajo se encarga de copiar los ficheros html de nuestra c
     <img src="src/data/readme-imgs/tarea-html.jpg" width="800"/>
 </p>
 
-#### Procesado de los ficheros sass 
+#### Procesado de los ficheros .sass 
 La siguiente tarea es algo más compleja, ya que realiza varias acciones. El orden es el siguiente:
 - Crea los ficheros css.map, Estos nos permitiran inspecionar los css en el navegador. 
 - Se compilan los ficheros sass en ficheros css
@@ -139,7 +141,7 @@ La siguiente tarea es algo más compleja, ya que realiza varias acciones. El ord
     <img src="src/data/readme-imgs/tarea-sass.jpg" width="800"/>
 </p>
 
-#### Procesado de los ficheros js 
+#### Procesado de los ficheros .js 
 
 En esta tarea, se reduce el tamañano de todos los ficheros de javascript y se concatenan formando un único fichero de javascript de nombre index.js, este fichero se añade como siempte, a nuestra carpeta build.:
 <p align="center">
@@ -157,13 +159,20 @@ Esta tarea se encarga de observar cambios en las carpetas fuente cuando el servi
 
 #### Forzar a los navegadores actualizar su cache
 
-Un problema comun, es no tener claro si nuestros cambios han sido aplicados o es el navegador quien está utilizando una version antigua de nuestro programa. Una alternativa a esto es pulsar F5, lo que refresca el navegador y su memoria cache, otra es nombrar los fichero con la etiqueta *?v=232023* y algún número de versión. Entonces, gulp incrementará dichos números con cada build, forzando al navegador a actualizar su memoria cache y evitando las dudas y trabajo de pulsar F5.
-
+Un problema comun, es no tener claro si nuestros cambios han sido aplicados o es el navegador quien está utilizando una version antigua de nuestro programa. Una solucción a esto es pulsar F5, lo que refresca el navegador y su memoria cache. Otra es nombrar los ficheros con la etiqueta *?v=232023* y algún número de versión. Entonces, gulp incrementará dichos números con cada build, forzando al navegador a actualizar su memoria cache y evitando las dudas y trabajo de pulsar F5.
 
 
 <p align="center">
     <img src="src/data/readme-imgs/cache.jpg" width="800"/>
 </p>
+
+#### Juntando todas las partes
+En resumen, tras lanzar el comando gulp tendremos un entorno de desarrollo con un servidor de aplicación local y nuestra cuadrilla de ranas (tareas de gulp) ma drá el build actualizado a medida que apliquemos cambios, todo de forma automática.
+<p align="center">
+    <img src="src/data/readme-imgs/devenv.jpg" width="800"/>
+</p>
+
+### asd
 
 ### Image processing
 
