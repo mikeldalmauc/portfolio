@@ -9,12 +9,14 @@ Personal portfolio website
     - [Instalación de entorno preconfigurado](#instalación-de-entorno-preconfigurado)
     - [Instalación individual de dependencias](#instalación-individual-de-dependencias)
   - [Build](#build)
-    - [Entendiendo el bukfile](#entendiendo-el-bukfile)
+    - [Entendiendo el bulkfile](#entendiendo-el-bulkfile)
       - [Cabecera del fichero](#cabecera-del-fichero)
       - [Arranque del servidor](#arranque-del-servidor)
       - [Copiado de los ficheros .html](#copiado-de-los-ficheros-html)
       - [Procesado de los ficheros sass](#procesado-de-los-ficheros-sass)
       - [Procesado de los ficheros js](#procesado-de-los-ficheros-js)
+      - [Observando los cambios](#observando-los-cambios)
+      - [Forzar a los navegadores actualizar su cache](#forzar-a-los-navegadores-actualizar-su-cache)
     - [Image processing](#image-processing)
         - [Notes:](#notes)
 - [References](#references)
@@ -87,10 +89,10 @@ Ejecutamos el siguiente comando en nuestro proyecto para hacer el build.
 
 Si todo va correctamente veremos la siguiente salida en la consola y que se crea la carpeta build en la raiz de nuestro proyecto.
 <p align="center">
-    <img src="src/data/readme-imgs/build-good.jpg" width="260"/>
+    <img src="src/data/readme-imgs/build-good.jpg" width="360"/>
 </p>
 
-### Entendiendo el bukfile
+### Entendiendo el bulkfile
 
 #### Cabecera del fichero
 El progama bulk, es un programa diseñado para ejecutar tareas de acuerdo a una configuración específica, dicha configuración se define en el fichero **bulkfile.js**, que es a su vez un script que se ejecuta siempre que usamos el comando bulk, veamoslo.
@@ -98,13 +100,13 @@ El progama bulk, es un programa diseñado para ejecutar tareas de acuerdo a una 
 La primera parte del fichero ya la conociamos, aquí se definen variables globales y dependencias. 
 
 <p align="center">
-    <img src="src/data/readme-imgs/gulp-dependencies.jpg" width="250"/>
+    <img src="src/data/readme-imgs/gulp-dependencies.jpg" width="350"/>
 </p>
 
 Caben destacar, los selectores que nos permitiran especificar, en nuestro caso, donde tienen que buscarse las fuentes. Por ejemplo, con <b>src/sass/**/*.sass</b> estamos indicando que busque en todas las carpetas bajo la carpeta sass, todos los ficheros que terminen en .sass.
 
 <p align="left">
-    <img src="src/data/readme-imgs/files.jpg" style="margin-left: 100px;" width="130"/>
+    <img src="src/data/readme-imgs/files.jpg" style="margin-left: 60px;" width="180"/>
     <img src="src/data/readme-imgs/selectores.jpg" style="margin-left: 200px;"  width="250"/>
 </p>
 
@@ -142,6 +144,25 @@ La siguiente tarea es algo más compleja, ya que realiza varias acciones. El ord
 En esta tarea, se reduce el tamañano de todos los ficheros de javascript y se concatenan formando un único fichero de javascript de nombre index.js, este fichero se añade como siempte, a nuestra carpeta build.:
 <p align="center">
     <img src="src/data/readme-imgs/tarea-js.jpg" width="800"/>
+</p>
+
+
+#### Observando los cambios
+
+Esta tarea se encarga de observar cambios en las carpetas fuente cuando el servidor está levantado, en caso de detectar cambios, ejecutará la tarea correspondiente actualizando nuestra carpeta build automáticamente.
+
+<p align="center">
+    <img src="src/data/readme-imgs/observer.jpg" width="800"/>
+</p>
+
+#### Forzar a los navegadores actualizar su cache
+
+Un problema comun, es no tener claro si nuestros cambios han sido aplicados o es el navegador quien está utilizando una version antigua de nuestro programa. Una alternativa a esto es pulsar F5, lo que refresca el navegador y su memoria cache, otra es nombrar los fichero con la etiqueta *?v=232023* y algún número de versión. Entonces, gulp incrementará dichos números con cada build, forzando al navegador a actualizar su memoria cache y evitando las dudas y trabajo de pulsar F5.
+
+
+
+<p align="center">
+    <img src="src/data/readme-imgs/cache.jpg" width="800"/>
 </p>
 
 ### Image processing

@@ -123,7 +123,7 @@ function watchTask() {
     watch(
         [sassFiles, jsFiles, htmlFiles],
         series(
-            parallel(scssTask, jsTask),
+            parallel(htmlTask, scssTask, jsTask),
             preventCachingTask
         )
     );
