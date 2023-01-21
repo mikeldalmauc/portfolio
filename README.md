@@ -237,7 +237,7 @@ https://docs.npmjs.com/cli/v6/commands/npm-install
 Todavía hay más, como habrás podido ver en el gulpfile hay una tarea más definida. 
 
 <p align="center">
-    <img src="src/data/readme-imgs/imageOpt.jpg" width="800"/>
+    <img src="src/data/readme-imgs/imageopt.jpg" width="800"/>
 </p>
 
 Esta tarea sirve para generar imagenes a partir de una configuración como la de abajo, generara imagenes de tamaños y formatos distintos. En el ejemplo se generarán 6 versiones de cada imagen, dos con terminación **-sm.avif** y **-md.avif**, dos con terminación **-sm.webp** y **-sm.webp**, y dos con **-sm.jpg** y **-md.jpg**. El tamaño de imagen sm equivaldría a 48em * 16 = 768px de ancho y md a 1040px. En el json se encuentra en ems ya que 
