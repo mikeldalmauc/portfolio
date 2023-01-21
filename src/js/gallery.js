@@ -51,7 +51,7 @@ const imagesPath = "assets/gallery/";
 
 // Se inicializa el modelo
 function init() {
-  fetch("data/gallery/galleryImages.json")
+  fetch("src/data/galleryImages.json")
     .then((response) => response.json())
     .then((gallery) => {
       modelo = gallery.data;
@@ -68,7 +68,7 @@ function init() {
  * esto quiere decir, que en nuestra función no podremos usar la variable modelo
  * a menos que hagamos this.modelo, esto nos hace conscientes de cuando usamos
  * datos compartidos y mutables en nuestras funciones. Para que las funciones no tengan resultados
- * impredecibles es mejor evitar datos compartidos.
+ * impredecibles es mejor evitar datos compartidos
  *
  * @param {*} model
  */
@@ -83,7 +83,7 @@ function view(model) {
       let li = document.createElement("li");
 
       let link = document.createElement("a");
-      link.href = defaultImageSourcePath(imageName);
+      link.href = defaultImageSourcePath(model, imageName);
       link.target = "_blank";
 
       // Se genera el html de la imagen
@@ -127,15 +127,17 @@ function pictureView(model, filename) {
 }
 
 function buildImgPath(filename) {
-  return this.imagesPath + filename + "/" + filename;
+  return "assets/gallery/" +filename + "/" + filename;
 }
 
-function defaultImageSourcePath(imageName) {
+function defaultImageSourcePath(model, imageName) {
+  
+  const lastBp = model.breakpoints.at(model.breakpoints.length -1);
+  const lastF = model.formats.at(model.formats.length -1);
+
   return (
     buildImgPath(imageName) +
-    "-" +
-    model.breakpoints.slice(-1) +
-    "." +
-    model.breakpoints.slice(-1)
+    "-" + lastBp.name+
+    "." + "jpg"
   );
 }

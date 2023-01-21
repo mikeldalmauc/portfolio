@@ -51,7 +51,7 @@ function imageOptimizerTask(){
 
     const BREAKPOINTS = galleryConfig.breakpoints; 
 
-    const onDiv = div => BREAKPOINTS.map(bp => [Math.round(bp.size / div), "-"+bp.name]);
+    const onDiv = div => BREAKPOINTS.map(bp => [Math.round((bp.size*16) / div), "-"+bp.name]);
     const div = arg.d || 1;
     const bps = onDiv(div); 
     // creates an array of [[1, "-xs"], [2, "-sm"], ... ] (obviously the values are 576/div etc)
@@ -121,7 +121,7 @@ function watchTask() {
     // Watch for changes in any SCSS or JS files, and run the scssTask,
     // jsTask, and preventCachingTask functions whenever there is a change.
     watch(
-        [sassFiles, jsFiles],
+        [sassFiles, jsFiles, htmlFiles],
         series(
             parallel(scssTask, jsTask),
             preventCachingTask
