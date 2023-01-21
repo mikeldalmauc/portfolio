@@ -93,6 +93,29 @@ function view(model) {
     });
 }
 
+/**
+ * Tweak this function as needed, forms image htlm using format and 
+ * breakpoints arrays for source names
+ * 
+ *  "formats": [
+      "avif",
+      "webp",
+      "jpeg"
+    ],
+    "breakpoints": [
+    {
+      "name": "sm",
+      "size": "48"
+    },
+    {
+      "name": "md",
+      "size": "65"
+    }
+
+ * @param {*} model 
+ * @param {*} filename 
+ * @returns 
+ */
 function pictureView(model, filename) {
   let path = buildImgPath(filename);
 
