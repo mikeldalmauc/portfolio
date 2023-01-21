@@ -9,7 +9,7 @@ Personal portfolio website
     - [Instalación de entorno preconfigurado](#instalación-de-entorno-preconfigurado)
     - [Instalación individual de dependencias](#instalación-individual-de-dependencias)
   - [Build](#build)
-    - [Entendiendo el bulkfile](#entendiendo-el-bulkfile)
+    - [Gulp y el gulpfile](#gulp-y-el-gulpfile)
       - [Cabecera del fichero](#cabecera-del-fichero)
       - [Arranque del servidor](#arranque-del-servidor)
       - [Copiado de los ficheros .html](#copiado-de-los-ficheros-html)
@@ -18,7 +18,7 @@ Personal portfolio website
       - [Observando los cambios](#observando-los-cambios)
       - [Forzar a los navegadores actualizar su cache](#forzar-a-los-navegadores-actualizar-su-cache)
       - [Juntando todas las partes](#juntando-todas-las-partes)
-    - [asd](#asd)
+  - [Herramientas del entorno de desarrollo](#herramientas-del-entorno-de-desarrollo)
     - [Image processing](#image-processing)
         - [Notes:](#notes)
 - [References](#references)
@@ -75,7 +75,7 @@ En la raiz de nuestro proyecto, podemos encontrar un fichero de nombre **gulfile
 
 Finalmente instalamos todas las dependencias necesarias de la siguente forma.
 
-`npm install -d gulp browser-sync gulp-sass gulp-sourcemaps gulp-concat gulp-uglify gulp-postcss autoprefixer gulp-replace cssnano `
+`npm install -d gulp browser-sync gulp-sass gulp-sourcemaps gulp-concat gulp-uglify gulp-postcss autoprefixer gulp-replace cssnano bootstrap jquery`
 
 
 ## Build
@@ -94,7 +94,7 @@ Si todo va correctamente veremos la siguiente salida en la consola y que se crea
     <img src="src/data/readme-imgs/build-good.jpg" width="360"/>
 </p>
 
-### Entendiendo el bulkfile
+### Gulp y el gulpfile
 
 #### Cabecera del fichero
 El progama bulk, es un programa diseñado para ejecutar tareas de acuerdo a una configuración específica, dicha configuración se define en el fichero **bulkfile.js**, que es a su vez un script que se ejecuta siempre que usamos el comando bulk, veamoslo.
@@ -167,12 +167,12 @@ Un problema comun, es no tener claro si nuestros cambios han sido aplicados o es
 </p>
 
 #### Juntando todas las partes
-En resumen, tras lanzar el comando gulp tendremos un entorno de desarrollo con un servidor de aplicación local y nuestra cuadrilla de ranas (tareas de gulp) ma drá el build actualizado a medida que apliquemos cambios, todo de forma automática.
+En resumen, tras lanzar el comando gulp tendremos un entorno de desarrollo con un servidor de aplicación local y nuestra cuadrilla de ranas (tareas de gulp) mantendrá el build actualizado a medida que apliquemos cambios, todo de forma automática.
 <p align="center">
     <img src="src/data/readme-imgs/devenv.jpg" width="800"/>
 </p>
 
-### asd
+## Herramientas del entorno de desarrollo
 
 ### Image processing
 
