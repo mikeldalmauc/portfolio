@@ -1,29 +1,19 @@
 @use 'base' as *
 
-.menu-small-footer-menu-container 
-  display: inline-block
-
-.small-menu 
-  padding: 0
-  margin: 0
-  display: inline-block
-  list-style: none
-  li
-    display: inline-box
-    
-.site-footer
-  grid-area: footer
+.footer-md
   text-align: center
-  margin: 1em 0
-
-.site-footer
   font-size: $base-font-size*0.5
-  .site-info
-    display: inline-block
-    margin: 0px auto
-    list-style: none
-    margin: 1em 0
-    padding: 0px
-    li
-      float: left
-      margin-left: 1em
+  flex-direction: row!important
+  column-gap: 5em
+  justify-content: center
+  flex-direction: row 
+
+  svg 
+    width: $base-spacing*3
+    height: $base-spacing*3
+    fill: $accent3
+    margin: 0 0 $base-spacing*2
+  p 
+    font-size:$base-font-size*0.8
+  li
+    list-style: katakana-iroha

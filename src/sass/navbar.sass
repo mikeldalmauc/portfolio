@@ -1,40 +1,15 @@
 @use 'base' as *
 
-.site-branding
-  z-index: 1
-  @media not ($mq-large)
-    min-width: 4em
-    margin-left: 0.5em
-    margin-right: auto
-
-
-.site-navigation
-  position: relative
-
-.custom-mobile-link 
-  display: block
+.custom-logo-link 
   height: 0
   padding-bottom: 100%
   background-image: url(../../assets/logosmall.png)
   background-position: center center
   background-size: cover
   visibility: visible
+  min-width: 100px
   @media ($mq-large)
-    display: none
-    visibility: hidden
-  
-.custom-logo-link
-  margin-left: 0.8em
-  display: block
-  height: 0
-  padding-bottom: 100%
-  background-image: url(../../assets/logobig.png)
-  background-position: center center
-  background-size: cover
-  visibility: visible
-  @media not ($mq-large)
-    display: none
-    visibility: hidden
+    background-image: url(../../assets/logobig.png)
 
 .social-buttons
   display: inline-block
@@ -61,118 +36,3 @@
   font-size: 1.1em
   @media not ($mq-large)
     font-size: 1.5em
-
-.main-navigation
-  margin-top: 1em
-
-
-
-.sf-vertical
-  width: 100%
-  min-width: 8em
-  li
-    float: none
-
-.sf-menu, .sf-menu * 
-  padding: 0px
-  margin: 0px
-  list-style: none
-  z-index: 99999
-
-.sf-menu
-  line-height: $base-line-height*0.7
-  display: flex
-  flex-direction: horizontal
-  margin-bottom: 1em
-  margin-left: auto
-  width: 100%
-  @media not ($mq-large)
-    justify-content: center
-    align-items: flex-start
-
-  li 
-    white-space: nowrap
-    *white-space: normal
-    transition: background 0.2s
-    position: relative
-    justify-content: center
-  @media ($mq-large)
-    display: block !important
-
-
-.sf-menu 
-  a 
-    font-size: $base-font-size*0.8
-    text-transform: uppercase
-    padding: 0.75em 0 0.75em 0
-    text-decoration: none
-    zoom: 1
-    color: $base-accent
-    text-align: center
-    display: block
-    position: relative
-    letter-spacing: 0.12em
-    font-weight: 400
-    
-#hamburger-icon 
-  margin: auto 0
-  display: none
-  cursor: pointer
-
-
-#hamburger-icon div 
-  width: 35px
-  height: 3px
-  background-color: white
-  margin: 6px 0
-  transition: 0.4s
-
-
-.open .bar1 
-  -webkit-transform: rotate(-45deg) translate(-6px, 6px)
-  transform: rotate(-45deg) translate(-6px, 6px)
-
-
-.open .bar2 
-  opacity: 0
-
-
-.open .bar3 
-  -webkit-transform: rotate(45deg) translate(-6px, -8px)
-  transform: rotate(45deg) translate(-6px, -8px)
-
-
-.open .mobile-menu 
-  display: flex
-  flex-direction: column
-  align-items: center
-  justify-content: flex-start
-
-
-.mobile-menu 
-  display: none
-  position: absolute
-  top: 50px
-  left: 0
-  height: calc(100vh - 50px)
-  width: 100%
-  li 
-    width: 100%
-    list-style: none
-    background-color: $base-primary
-    border-bottom: 1px solid $border-color
-
-.mobile-menu > li:first-of-type
-  border-top: 1px solid $border-color
-
-
-@media not ($mq-large)
-  header nav 
-    display: none
-  
-
-  #hamburger-icon 
-    margin-right: 1em
-    margin-left: auto
-    display: block
-  

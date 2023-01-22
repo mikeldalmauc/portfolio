@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<!-- SVG Defs -->
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -6,15 +9,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mikel Dalmau personal website, portfolio site</title>
 
-    <link rel="icon" href="/assets/favicon.png">
+    <link rel="icon" href="assets/favicon.png">
 
     
-    <link rel="stylesheet" href="build/base.css?v=1674294337810" />
-    <link rel="stylesheet" href="build/index.css?v=1674294337810" />
-    <link rel="stylesheet" href="build/navbar.css?v=1674294337810" />
-    <link rel="stylesheet" href="build/footer.css?v=1674294337810" />
-    <link rel="stylesheet" href="build/gallery.css?v=1674294337810" />
-    <script src="build/index.js?v=1674294337810"></script>
+    <link rel="stylesheet" href="build/base.css?v=1674421335519" />
+    <link rel="stylesheet" href="build/index.css?v=1674421335519" />
+    <link rel="stylesheet" href="build/navbar.css?v=1674421335519" />
+    <link rel="stylesheet" href="build/footer.css?v=1674421335519" />
+    <link rel="stylesheet" href="build/gallery.css?v=1674421335519" />
+    <script src="build/index.js?v=1674421335519"></script>
 
     <link
       href="/assets/fontawesome/css/all.css"
@@ -27,60 +30,36 @@
       type="text/css"
     />
     <script src="https://kit.fontawesome.com/307b32ae60.js" crossorigin="anonymous"></script>
-
+    
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">    </script> 
-
     <script> 
       $(function(){
-        // $("#includedContent").load("build/navbar.html"); 
-        $("#includedContent").load("build/navbarorig.html"); 
-      });image.png
+        $("#includedContent").load("build/navbarIndex.html"); 
+        // $("#includedContent").load("build/navbarorig.html"); 
+        $("#tabs").load("build/tabs.html"); 
+        $("#footer").load("build/footer.html"); 
+      });
     </script> 
 
   </head>
 
-  <body onLoad="init();">
+  
+  <body>
+    
+    <header id="includedContent">
+    </header>
+    
 
-
-    <div id="page" class="site">
-
-      <header id="includedContent" class="site-header">
-
-      </header>
-
-      <div id="content" class="site-content">
-        <!-- primary content -->
-        <div id="primary" class="content-area full-width">
-          <main id="main" class="site-main">
-            <div id="gallery" class="gallery"></div>
-          </main>
-        </div>
+      <!-- Divider -->
+      <div class="divider">
+        <svg class="icon" viewBox="0 0 50 50">
+            <use xlink:href="#emblem"></use>
+          </svg>
       </div>
+    <!-- Divider -->
 
-      <footer class="site-footer">
-        <ul class="site-info">
-          <li>Mikel Dalmau © 2004 - 2023</li>
-          <li>
-            <div class="menu-small-footer-menu-container">
-              <ul id="secondary-menu" class="small-menu">
-                <li
-                  id="menu-item-372"
-                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-372"
-                >
-                  <a href="https://mikeldalmau.com/privacy-policy/">Privacy Policy</a>
-                </li>
-                <li
-                  id="menu-item-2267"
-                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2267"
-                >
-                  <a href="https://mikeldalmau.com/faq/">FAQ</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <!-- nav menu -->
-        </ul>
-      </footer>
-    </div>
+    <footer id="footer" class="footer-md">
+    </footer>
   </body>
 </html>

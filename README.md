@@ -75,10 +75,26 @@ En la raiz de nuestro proyecto, podemos encontrar un fichero de nombre **gulfile
 
 </p>
 
+Las siguientes librerías solo se utilizarán en el entorno de desarrollo.
+
+`npm install --save-dev gulp gulp-sharp-responsive`
+`npm install --save-dev gulp-rename`
+`npm install --save-dev sass`         
 
 Finalmente instalamos todas las dependencias necesarias de la siguente forma.
 
 `npm install -d gulp browser-sync gulp-sass gulp-sourcemaps gulp-concat gulp-uglify gulp-postcss autoprefixer gulp-replace cssnano bootstrap jquery`
+
+
+**Nota**
+Otras librerías que puede hacer falta instalar:
+
+Es posible que haga falta instalar esta libería en algunos casos. En la consola y como administrador ejecutar el siguiente comando.
+`npm install --global windows-build-tools`
+
+Si tenemos problemas con esta librería podeis probra a usar esta versión.
+`npm install --global windows-build-tools@4.0.0`
+
 
 
 ## Build
@@ -232,6 +248,8 @@ En el apartado **debug**, activando las siguientes opciones veremos los márgene
 # Referencias
 https://www.devsamples.com/javascript/example-gulpfile-scss-js-reload
 https://docs.npmjs.com/cli/v6/commands/npm-install
+https://huemint.com/
+
 
 # Anexos
 Todavía hay más, como habrás podido ver en el gulpfile hay una tarea más definida. 
@@ -256,15 +274,4 @@ Finalmente veremos como a partir de las imagenes en el directorio **src/data/gal
 <p align="center">
     <img src="src/data/readme-imgs/imageopt2.jpg" width="600"/>
 </p>
-
-Para esta tarea se utiliza la libería sharp por lo que será necesario instalarlas.
-
-`npm install --save-dev gulp gulp-sharp-responsive`
-
-Otras librerías que puede hacer falta instalar.
-
-`npm install --save-dev gulp-rename`
-
-`npm install --save-dev sass`         
-
 `

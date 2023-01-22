@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mikel Dalmau personal website, portfolio site</title>
+
+    <link rel="icon" href="../assets/favicon.png">
+
+    
+    <link rel="stylesheet" href="base.css?v=1674402254700" />
+    <link rel="stylesheet" href="index.css?v=1674402254700" />
+    <link rel="stylesheet" href="navbar.css?v=1674402254700" />
+    <link rel="stylesheet" href="footer.css?v=1674402254700" />
+    <link rel="stylesheet" href="gallery.css?v=1674402254700" />
+    <script src="index.js?v=1674402254700"></script>
+
+    <link
+      href="../assets/fontawesome/css/all.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../assets/fontawesome/css/v4-shims.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://kit.fontawesome.com/307b32ae60.js" crossorigin="anonymous"></script>
+    
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">    </script> 
+    <script> 
+      $(function(){
+        $("#includedContent").load("navbar.html"); 
+        // $("#includedContent").load("build/navbarorig.html"); 
+        $("#tabs").load("tabs.html"); 
+        $("#footer").load("footer.html"); 
+      });
+    </script> 
+
+  </head>
+
+  
+  <body>
+    
+    <header id="includedContent">
+    </header>
+
+    <section class="container-md">
+        <div class="twocols">
+            <div>
+                <h2>Questions</h2>
+                <p>I get a lot of e-mails, so unfortunately I’m not able to respond to all of them! If you have a question for me, you can find answers to the most common questions in my <a href="https://loish.net/faq/">FAQ</a>. You will most likely find the information you’re looking for in there!</p>
+            </div>
+            
+            <div>
+                <h2>Business inquiries</h2>  
+                <p>If you’d like to work together, feel free to contact me at&nbsp;<a href="mailto:business@loish.net">business@loish.net</a>! Please note: this e-mail address is for business purposes only, and not for personal commission requests. I’m currently not able to accept personal commissions due to a full schedule!</p>
+            </div>
+        </div>
+
+        </br>
+        </br>
+        </br>
+
+              <!-- Divider -->
+      <div class="divider">
+        <svg class="icon" viewBox="0 0 50 50">
+            <use xlink:href="#emblem"></use>
+          </svg>
+      </div>
+        No matter the question, here you can contact me and I will reply as soon as possible.
+
+     <!-- primary content -->
+        <form class="row g-4">
+        <!-- Divider -->
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail4">
+            </div>
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Name</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+            <div class="input-group">
+                <span class="input-group-text">With textarea</span>
+                <textarea rows="10" style="height:100%;"class="form-control" aria-label="With textarea"></textarea>
+            </div>
+            
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+        </form>
+        
+    </section>
+
+    <footer id="footer" class="footer-md">
+    </footer>
+
+  </body>
+
+</html>

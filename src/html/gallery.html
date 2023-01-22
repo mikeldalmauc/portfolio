@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mikel Dalmau personal website, portfolio site</title>
+
+    <link rel="icon" href="../assets/favicon.png">
+
+    
+    <link rel="stylesheet" href="base.css?v=1674402254700" />
+    <link rel="stylesheet" href="index.css?v=1674402254700" />
+    <link rel="stylesheet" href="navbar.css?v=1674402254700" />
+    <link rel="stylesheet" href="footer.css?v=1674402254700" />
+    <link rel="stylesheet" href="gallery.css?v=1674402254700" />
+    <script src="index.js?v=1674402254700"></script>
+
+    <link
+      href="../assets/fontawesome/css/all.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../assets/fontawesome/css/v4-shims.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://kit.fontawesome.com/307b32ae60.js" crossorigin="anonymous"></script>
+    
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">    </script> 
+    <script> 
+      $(function(){
+        $("#includedContent").load("navbar.html"); 
+        // $("#includedContent").load("build/navbarorig.html"); 
+        $("#tabs").load("tabs.html"); 
+        $("#footer").load("footer.html"); 
+      });
+    </script> 
+
+  </head>
+
+  
+  <body onLoad="init();">
+    
+    <header id="includedContent">
+    </header>
+    
+    <div id="tabs">
+    </div>
+      <!-- primary content -->
+      <div id="primary" class="content-area full-width">
+        <main id="main" class="site-main">
+          <div id="gallery" class="gallery"></div>
+        </main>
+      </div>  
+
+    <footer id="footer" class="footer-md">
+    </footer>
+  </body>
+</html>

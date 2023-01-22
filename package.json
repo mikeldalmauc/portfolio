@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "imageOptimizerTask": "gulp imageOptimizerTask",
-    "start": "node build/server.js"
+    "start": "node server/server.js"
   },
   "author": "Mikel Dalmau",
   "license": "ISC",

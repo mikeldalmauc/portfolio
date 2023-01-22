@@ -15,9 +15,11 @@ const fs = require('fs')
 const cssVersion = new Date().getTime();
 const sassFiles = 'src/sass/**/*.sass';
 const jsFiles = 'src/js/**/*.js';
+const bootstrapfiles = 'node_modules/bootstrap/js/**/*.js';
+
 const htmlFiles = 'src/html/**/*.html';
 const imageFiles = 'src/data/gallery/*.jpg';
-const processedImages = 'assets/**';
+const assets = 'assets/**';
 const galleryConfig = JSON.parse(fs.readFileSync('src/data/galleryImages.json')).data;
 
 function imageOptimizerTask(){
@@ -95,7 +97,7 @@ function watchTask() {
     watch(
         [sassFiles, jsFiles, htmlFiles],
         series(
-            parallel(htmlTask, scssTask, jsTask),
+            parallel(scssTask, jsTask, htmlTask),
             preventCachingTask
         )
     );
